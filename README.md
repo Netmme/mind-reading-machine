@@ -20,6 +20,6 @@ Passer le nombre de manches en paramètre du programme
 Chaque joueur doit choisir entre pile ou face. Le joueur A gagne si les deux joueurs ont fait le même choix. A l'inverse le joueur B gagne lorsque les choix sont différents.
 
 
-Références:
+## Références:
 
 Apprentissage pour l'anticipation de comportements de joueurs humains dans les à information complète et imparfaite: les "Mind-Reading Machines - Jean-Daniel Zucker, Christophe Meyer - Revue d'intelligence artificielle volume n14
