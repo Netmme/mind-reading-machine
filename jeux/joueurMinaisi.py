@@ -13,7 +13,7 @@ class JoueurMinaisi(Joueur):
         Joueur.__init__(self, nom)
         self.prec = ""
 
-    def minasiJoue(self, jeu):
+    def joue(self, jeu):
         cptP = cptF = 1
         if len(self.prec) > 1:
             motif = ""
@@ -38,5 +38,5 @@ class JoueurMinaisi(Joueur):
         return random.choices(jeu, [cptP, cptF])
 
         
-    def minasiClcl(self, coup):
+    def clcl(self, coup):
         self.prec += coup

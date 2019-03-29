@@ -7,6 +7,7 @@
 import random
 import sys
 from jeux.joueurMinaisi import JoueurMinaisi
+from jeux.joueurShanon import JoueurShanon
 from jeux.joueurHum1 import JoueurHum1
 
 jeux = {"pf": ["Pile", "Face"]}
@@ -46,26 +47,30 @@ def saisieJoueur(msg):
 if __name__ == '__main__':
         #Initialisation
     # ~ j = saisieJoueur("Le joueur qui fait deviner est-il humain (h) ou machine (m) ?\n")
-    j1 = JoueurMinaisi("Alice")
+    j1 = JoueurShanon("Shanon")
     # ~ j = saisieJoueur("Le joueur qui devine est-il humain (h) ou machine (m) ?\n")
     j2 = JoueurHum1("Bob")
-    # ~ condFin = saisieNbr("Partie en combien de manches ?\n")
-    condFin = int(sys.argv[1])
+    if len(sys.argv) >= 2:
+        condFin = int(sys.argv[1])
+    else:
+        condFin = saisieNbr("Partie en combien de manches ?\n")
     nbrGa = nbrPe = 0
     
         # Jeu
     for i in range(condFin):
-        ch1 = j1.minasiJoue(jeux['pf'])
+        ch1 = j1.joue(jeux['pf'])
         ch2 = j2.joue(jeux['pf'])
         print("Augur : {}".format(ch1[0]))
-        if ch2.upper() == ch1[0][0]:
+        if ch2.upper() == ch1[0][0]:	# La machine devine la pensee
             print("Perdu :/")
             nbrPe += 1
-        else:
+            res = 'd'
+        else:				# La machine ne devine pas la pensee
             print("Gagné :D")
             nbrGa += 1
+            res = 'v'
         print("Tu en es à : {} manches gagnées, {} manches perdues".format(nbrGa, nbrPe))
-        j1.minasiClcl(ch2)
+        j1.clcl(ch2, res)
     
         # Conclusion
     if nbrGa > nbrPe:
