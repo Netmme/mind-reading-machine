@@ -4,26 +4,31 @@ Algorithmes pour gagner aux jeux à information complète et imparfaite tel que 
 ## Version 0
 
 Jeu "Presque Pile ou Face" intégré.
+
 Algorithme de Minaisi adapté intégré.
 
 ## Version 0.5
 
 Ajout de la MRM de Shanon
+
 Ajout du choix, pour jouer contre Shanon ou Minaisi
+
 Lissage de l'interface, accepte le type de joueur en paramètre (ex: ./main.py h m 8)
+
 La machine doit être le joueur 1 sinon cela ne fonctionne pas (à corriger)
 
 ## Mode d'emploie
 
-Rendre le main executable
-Passer le nombre de manches en paramètre du programme
+Rendre le main executable.
+
+Passer le type de joueur du joueur 1 (h(umain) ou m(achine)), le type du joueur 2 et le nombre de manches en paramètre du programme. Ou pas, si des paramètres sont manquants ils seront redemandés.
 
 
 ## Règles des jeux
 
 ### Presque Pile ou Face
 
-Chaque joueur doit choisir entre pile ou face. Le joueur A gagne si les deux joueurs ont fait le même choix. A l'inverse le joueur B gagne lorsque les choix sont différents.
+Chaque joueur doit choisir entre pile ou face. Le joueur A gagne si les deux joueurs ont fait le même choix. À l'inverse le joueur B gagne lorsque les choix sont différents.
 
 
 ## Références:
