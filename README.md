@@ -3,26 +3,25 @@ Algorithmes pour gagner aux jeux à information complète et imparfaite tel que 
 
 ## Version 0
 
-Jeu "Presque Pile ou Face" intégré.
-
-Algorithme de Minaisi adapté intégré.
+Creation du projet.
+* Jeu "Presque Pile ou Face" intégré.
+* Algorithme de Minaisi adapté intégré.
 
 ## Version 0.5
 
-Ajout de la MRM de Shanon
-
-Ajout du choix, pour jouer contre Shanon ou Minaisi
-
-Lissage de l'interface, accepte le type de joueur en paramètre (ex: ./main.py h m 8)
-
-La machine doit être le joueur 1 sinon cela ne fonctionne pas (à corriger)
+Ammelioration du projet pour qu'il est une certaine consistance.
+* Ajout de la MRM de Shanon
+* Ajout du choix, pour jouer contre Shanon ou Minaisi
+* Lissage de l'interface, accepte le type de joueur en paramètre *(ex: ./main.py h m 8)*
+* La machine doit être le joueur 1 sinon cela ne fonctionne pas *(à corriger)*
 
 ## Mode d'emploie
 
-Rendre le main executable.
+* Rendre le main executable (ou pas c'est comme vous voulez).
 
-Passer le type de joueur du joueur 1 (h(umain) ou m(achine)), le type du joueur 2 et le nombre de manches en paramètre du programme. Ou pas, si des paramètres sont manquants ils seront redemandés.
+* Passer le type de joueur du joueur 1 :**h**(umain) ou **m**(achine), le type du joueur 2 et le nombre de manches en paramètre du programme. Ou pas, si des paramètres sont manquants ils seront redemandés.
 
+**NB :** Le joueur 1 doit être la machine et le joueur 2 un humain.
 
 ## Règles des jeux
 
@@ -33,4 +32,4 @@ Chaque joueur doit choisir entre pile ou face. Le joueur A gagne si les deux jou
 
 ## Références:
 
-Apprentissage pour l'anticipation de comportements de joueurs humains dans les à information complète et imparfaite: les "Mind-Reading Machines - Jean-Daniel Zucker, Christophe Meyer - Revue d'intelligence artificielle volume n14
+Apprentissage pour l'anticipation de comportements de joueurs humains dans les à information complète et imparfaite: les "Mind-Reading Machines" - Jean-Daniel Zucker, Christophe Meyer - Revue d'intelligence artificielle volume n14
