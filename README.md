@@ -1,13 +1,15 @@
 # mind-reading-machine
 Algorithmes pour gagner aux jeux à information complète et imparfaite tel que le pile ou face; pierre, feuille, ciseaux;...
 
-## Version 0
+## Versions
+
+### Version 0
 
 Creation du projet.
 * Jeu "Presque Pile ou Face" intégré.
 * Algorithme de Minaisi adapté intégré.
 
-## Version 0.5
+### Version 0.5
 
 Ammélioration du projet pour qu'il ait une certaine consistance.
 * Ajout de la MRM de Shanon.
