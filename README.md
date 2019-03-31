@@ -9,19 +9,19 @@ Creation du projet.
 
 ## Version 0.5
 
-Ammelioration du projet pour qu'il est une certaine consistance.
-* Ajout de la MRM de Shanon
-* Ajout du choix, pour jouer contre Shanon ou Minaisi
-* Lissage de l'interface, accepte le type de joueur en paramètre *(ex: ./main.py h m 8)*
-* La machine doit être le joueur 1 sinon cela ne fonctionne pas *(à corriger)*
+Ammélioration du projet pour qu'il ait une certaine consistance.
+* Ajout de la MRM de Shanon.
+* Ajout du choix de l'algorithme de la machine, pour jouer contre Shanon ou Minaisi.
+* Lissage de l'interface, accepte le type de joueur en paramètre *(ex: ./main.py m h 8)*.
+* La machine doit être le joueur 1 sinon cela ne fonctionne pas *(à corriger)*.
 
 ## Mode d'emploie
 
-* Rendre le main executable (ou pas c'est comme vous voulez).
+* Rendre le main exécutable (ou pas c'est comme vous voulez).
 
 * Passer le type de joueur du joueur 1 :**h**(umain) ou **m**(achine), le type du joueur 2 et le nombre de manches en paramètre du programme. Ou pas, si des paramètres sont manquants ils seront redemandés.
 
-**NB :** Le joueur 1 doit être la machine et le joueur 2 un humain.
+**NB :** Le joueur 1 doit être une machine et le joueur 2 un humain.
 
 ## Règles des jeux
 
