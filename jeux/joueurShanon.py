@@ -75,4 +75,3 @@ class JoueurShanon(Joueur):
             else:
                 self.serie += 'm'
         self.derCoup = coup
-        print("Memoire :", self.serie)

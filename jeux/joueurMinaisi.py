@@ -38,5 +38,5 @@ class JoueurMinaisi(Joueur):
         return random.choices(jeu, [cptP, cptF])
 
         
-    def clcl(self, coup):
+    def clcl(self, coup, res):
         self.prec += coup

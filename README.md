@@ -6,6 +6,12 @@ Algorithmes pour gagner aux jeux à information complète et imparfaite tel que 
 Jeu "Presque Pile ou Face" intégré.
 Algorithme de Minaisi adapté intégré.
 
+## Version 0.5
+
+Ajout de la MRM de Shanon
+Ajout du choix, pour jouer contre Shanon ou Minaisi
+Lissage de l'interface, accepte le type de joueur en paramètre (ex: ./main.py h m 8)
+La machine doit être le joueur 1 sinon cela ne fonctionne pas (à corriger)
 
 ## Mode d'emploie
 

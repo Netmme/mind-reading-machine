@@ -18,4 +18,4 @@ class JoueurHum1(Joueur):
         return choix
     
     def joue(self, jeu):
-        return self._saisieChoix("Pile (p) ou Face (f) ?\n", jeu)
+        return self._saisieChoix("Pile (p) ou Face (f) ? ", jeu)
