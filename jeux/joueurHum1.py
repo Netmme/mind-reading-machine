@@ -6,8 +6,8 @@
 from jeux.joueur import Joueur
 
 class JoueurHum1(Joueur):
-    def __init__(self, nom):
-        Joueur.__init__(self, nom)
+    def __init__(self, nom, condVic):
+        Joueur.__init__(self, nom, condVic)
     
     def _saisieChoix(self, msg, jeu):
         choix = input(msg)

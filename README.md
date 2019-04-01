@@ -17,13 +17,28 @@ Ammélioration du projet pour qu'il ait une certaine consistance.
 * Lissage de l'interface, accepte le type de joueur en paramètre *(ex: ./main.py m h 8)*.
 * La machine doit être le joueur 1 sinon cela ne fonctionne pas *(à corriger)*.
 
+### Version 1.0
+
+Projet fonctionnel, plusieurs algorithmes sont disponnibles mais qu'un seul jeu.
+* Ajout de la MRM Chanone Reloaded
+* Ajout des algorithmes de MRM lors du choix.
+* Adaptation des joueurs à leur condition de victoire, n'importe quel joueur peut être machine ou humain.
+* Correction des bugs qui empêchaient de jouer.
+
 ## Mode d'emploie
 
 * Rendre le main exécutable (ou pas c'est comme vous voulez).
-
 * Passer le type de joueur du joueur 1 :**h**(umain) ou **m**(achine), le type du joueur 2 et le nombre de manches en paramètre du programme. Ou pas, si des paramètres sont manquants ils seront redemandés.
+* Si un ou des joueurs sont des machines, renseigner l'algo.
+* Parier sur qui va gagner.
 
-**NB :** Le joueur 1 doit être une machine et le joueur 2 un humain.
+## Futurs ajouts
+
+*[] Pierre, Feuilles, Ciseaux
+*[] Nouvelle MRM
+*[] Statistiques lors d'une partie
+*[] Fonction aléatoire plus performante
+*[] Interface graphique
 
 ## Règles des jeux
 

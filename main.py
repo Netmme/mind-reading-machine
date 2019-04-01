@@ -4,10 +4,13 @@
 #  pileOuFace.py
 
 
+import time
 import random
 import sys
 from jeux.joueurMinaisi import JoueurMinaisi
 from jeux.joueurShanon import JoueurShanon
+from jeux.joueurChanone2 import JoueurChanone2
+from jeux.joueurMach import JoueurMach
 from jeux.joueurHum1 import JoueurHum1
 
 jeux = {"pf": ["Pile", "Face"]}
@@ -52,15 +55,19 @@ def saisieLettre(msg, listeChoix):
 # ==================
 
 
-def choixAlgo(msg, tmp):
+def initJoueur(msg, tmp, condVic):
     if tmp.upper() == 'M':
-        j = saisieLettre(msg, 'MS')
+        j = saisieLettre(msg, 'MSCA')
         if j.upper() == 'M':
-            res = JoueurMinaisi("Minaisi")
+            res = JoueurMinaisi("Minaisi", condVic)
+        elif j.upper() == "A":
+            res = JoueurMach("Alea", condVic)
         elif j.upper() == "S":
-            res = JoueurShanon("Shanon")
+            res = JoueurShanon("Shanon", condVic)
+        elif j.upper() == "C":
+            res = JoueurChanone2("Chanone", condVic)
     else:
-        res = JoueurHum1("Hum1")
+        res = JoueurHum1("Hum1", condVic)
         
     return res
     
@@ -86,16 +93,19 @@ if __name__ == '__main__':
         tmp1 = saisieLettre("Le joueur qui gagne si le pari est identique est-il humain (h) ou machine (m) ?\n", 'HM')
         tmp2 = saisieLettre("Le joueur qui gagne si le pari est different est-il humain (h) ou machine (m) ?\n", 'HM')
         condFin = saisieNbr("Partie en combien de manches ?\n")
-    j1 = choixAlgo("Choisissez l'algorithme pour le joueur 1 parmi Minaisi(m) ou Shanon (s) : ", tmp1)
-    j2 = choixAlgo("Choisissez l'algorithme pour le joueur 1 parmi Minaisi(m) ou Shanon (s) : ", tmp2)
+    j1 = initJoueur("Choisissez l'algorithme pour le joueur 1 parmi Aléatoire (a), Minaisi (m), Shanon (s) ou Chanone Reloaded (c): ", tmp1, str.__eq__)
+    j2 = initJoueur("Choisissez l'algorithme pour le joueur 2 parmi Aléatoire (a), Minaisi (m), Shanon (s) ou Chanone Reloaded (c): ", tmp2, str.__ne__)
     vic1 = vic2 = 0
     
         # Jeu
     for i in range(condFin):
         ch1 = j1.joue(jeux['pf'])
+        time.sleep(0.1)
         ch2 = j2.joue(jeux['pf'])
+        time.sleep(0.1)
         print("Augur : {}".format(ch1[0]))
-        if ch2.upper() == ch1[0][0]:    # La machine devine la pensee
+        print("Choix : {}".format(ch2[0]))
+        if ch2[0].upper() == ch1[0].upper():    # La machine devine la pensee
             print("Paris identiques, j1 gagne.")
             vic1 += 1
             res = 'd'
