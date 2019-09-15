@@ -25,6 +25,14 @@ Projet fonctionnel, plusieurs algorithmes sont disponnibles mais qu'un seul jeu.
 * Adaptation des joueurs à leur condition de victoire, n'importe quel joueur peut être machine ou humain.
 * Correction des bugs qui empêchaient de jouer.
 
+### Version 1.5
+
+Optimisation des joueurs
+* Utilisation de urandom au lieu de random
+* Reorganisation des objets joueurs
+Potentiels bug
+* Joueur 2 gagne beaucoup plus souvent que joueur 1 quel que soit l'algorithme
+
 ## Mode d'emploie
 
 * Rendre le main exécutable (ou pas c'est comme vous voulez).
@@ -37,7 +45,7 @@ Projet fonctionnel, plusieurs algorithmes sont disponnibles mais qu'un seul jeu.
 *[] Pierre, Feuilles, Ciseaux
 *[] Nouvelle MRM
 *[] Statistiques lors d'une partie
-*[] Fonction aléatoire plus performante
+*[*] Fonction aléatoire plus performante
 *[] Interface graphique
 
 ## Règles des jeux

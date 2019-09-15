@@ -5,39 +5,37 @@
 
 
 import time
-import random
 import sys
+from os import urandom
+from jeux.joueur import Joueur
 from jeux.joueurMinaisi import JoueurMinaisi
 from jeux.joueurShanon import JoueurShanon
 from jeux.joueurChanone2 import JoueurChanone2
-from jeux.joueurMach import JoueurMach
 from jeux.joueurHum1 import JoueurHum1
 
-jeux = {"pf": ["Pile", "Face"]}
+
+# ----------
 
 
-# ==================
-# ==================
+jeux = {"pf": ['p', 'f']}
 
 
-def saisieNbr(msg, min = 0, max = 300000):
+# ----------
+
+
+def saisieNbr(msg, min=0, max=300000):
     verif = True
     while verif:
         nbr = input(msg)
         if nbr.isdigit():
             res = int(nbr)
-            if min < res <max:
+            if min < res < max:
                 verif = False
             else:
                 print("Erreur, nombre impossible.")
         else:
             print("Erreur de saisie")
-    
     return res
-
-
-# ==================
-# ==================
 
 
 def saisieLettre(msg, listeChoix):
@@ -51,33 +49,27 @@ def saisieLettre(msg, listeChoix):
     return choix[0].upper()
 
 
-# ==================
-# ==================
-
-
 def initJoueur(msg, tmp, condVic):
     if tmp.upper() == 'M':
         j = saisieLettre(msg, 'MSCA')
         if j.upper() == 'M':
             res = JoueurMinaisi("Minaisi", condVic)
         elif j.upper() == "A":
-            res = JoueurMach("Alea", condVic)
+            res = Joueur("Alea", condVic)
         elif j.upper() == "S":
             res = JoueurShanon("Shanon", condVic)
         elif j.upper() == "C":
             res = JoueurChanone2("Chanone", condVic)
     else:
         res = JoueurHum1("Hum1", condVic)
-        
     return res
-    
-    
-# ==================
-# ==================
+
+
+# ----------
 
 
 if __name__ == '__main__':
-        #Initialisation
+    # Initialisation
     if len(sys.argv) >= 2:
         tmp1 = sys.argv[1]
         if len(sys.argv) >= 3:
@@ -87,17 +79,24 @@ if __name__ == '__main__':
             else:
                 condFin = saisieNbr("Partie en combien de manches ?\n")
         else:
-            tmp2 = saisieLettre("Le joueur qui gagne si le pari est different est-il humain (h) ou machine (m) ?\n", 'HM')
+            tmp2 = saisieLettre("Le joueur qui gagne si le pari est different \
+                                est-il humain (h) ou machine (m) ?\n", 'HM')
             condFin = saisieNbr("Partie en combien de manches ?\n")
     else:
-        tmp1 = saisieLettre("Le joueur qui gagne si le pari est identique est-il humain (h) ou machine (m) ?\n", 'HM')
-        tmp2 = saisieLettre("Le joueur qui gagne si le pari est different est-il humain (h) ou machine (m) ?\n", 'HM')
+        tmp1 = saisieLettre("Le joueur qui gagne si le pari est identique \
+                            est-il humain (h) ou machine (m) ?\n", 'HM')
+        tmp2 = saisieLettre("Le joueur qui gagne si le pari est different \
+                            est-il humain (h) ou machine (m) ?\n", 'HM')
         condFin = saisieNbr("Partie en combien de manches ?\n")
-    j1 = initJoueur("Choisissez l'algorithme pour le joueur 1 parmi Aléatoire (a), Minaisi (m), Shanon (s) ou Chanone Reloaded (c): ", tmp1, str.__eq__)
-    j2 = initJoueur("Choisissez l'algorithme pour le joueur 2 parmi Aléatoire (a), Minaisi (m), Shanon (s) ou Chanone Reloaded (c): ", tmp2, str.__ne__)
+    j1 = initJoueur("Choisissez l'algorithme pour le joueur 1 parmi Aléatoire \
+                    (a), Minaisi (m), Shanon (s) ou Chanone Reloaded (c): ",
+                    tmp1, str.__eq__)
+    j2 = initJoueur("Choisissez l'algorithme pour le joueur 2 parmi Aléatoire \
+                    (a), Minaisi (m), Shanon (s) ou Chanone Reloaded (c): ",
+                    tmp2, str.__ne__)
     vic1 = vic2 = 0
-    
-        # Jeu
+
+    # Jeu
     for i in range(condFin):
         ch1 = j1.joue(jeux['pf'])
         time.sleep(0.1)
@@ -126,7 +125,7 @@ if __name__ == '__main__':
             aff3 = "une égalité"
         print("Le score est de {} à {} pour {}.".format(aff1, aff2, aff3))
         j1.clcl(ch2, res)
-    
+
         # Conclusion
     if vic1 > vic2:
         print("Le joueur 1 a gagne.")
@@ -134,5 +133,3 @@ if __name__ == '__main__':
         print("Le joueur 2 a gagne.")
     else:
         print("Il fallait vraiment le faire.")
-
-
