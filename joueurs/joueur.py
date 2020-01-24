@@ -3,8 +3,11 @@
 #
 #  pileOuFace.py
 
-
+import sys
 from os import urandom
+from imprandom.imprandom import ponderate_choice
+
+sys.path.append('../')
 
 
 class Joueur():
@@ -12,8 +15,8 @@ class Joueur():
         self.nom = nom
         self.condVic = condVic
 
-    """ /!\ Transformation de la donnée: un mot devient une lettre"""
     def _swap(self, choice):
+        """ ! Transformation de la donnée: un mot devient une lettre"""
         if choice == 'p':
             res = 'f'
         else:
@@ -25,25 +28,8 @@ class Joueur():
             choice = self._swap(choice)
         return choice
 
-    def _choose(self, possibilities, poids):
-        def sum_list(l):
-            tot = 0
-            for i in l:
-                tot += i
-            return tot
-
-        tot = sum_list(poids)
-        rand = urandom(tot)
-        ind_choice = int.from_bytes(rand, 'big') % tot
-        i = 1
-        while ind_choice >= sum_list(poids[:i]) and i + 1 < len(possibilities):
-            i += 1
-        if ind_choice < sum_list(poids[:i]):
-            the_choice = possibilities[i - 1]
-        else:
-            the_choice = possibilities[i]
-        the_choice = self._toVictory(the_choice)
-        return the_choice
+    def _choose(self, poss, weight):
+        return ponderate_choice(weight, poss)
 
     def _joue(self, jeu):
         return self._choose(jeu, [1 for i in jeu])

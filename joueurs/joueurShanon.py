@@ -20,7 +20,7 @@
 #   |-v c   V   7
 
 
-from jeux.joueur import Joueur
+from joueurs.joueur import Joueur
 
 
 class JoueurShanon(Joueur):

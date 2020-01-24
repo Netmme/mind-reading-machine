@@ -6,21 +6,14 @@
 
 import time
 import sys
-from os import urandom
-from jeux.joueur import Joueur
-from jeux.joueurMinaisi import JoueurMinaisi
-from jeux.joueurShanon import JoueurShanon
-from jeux.joueurChanone2 import JoueurChanone2
-from jeux.joueurHum1 import JoueurHum1
-
-
-# ----------
+from joueurs.joueur import Joueur
+from joueurs.joueurMinaisi import JoueurMinaisi
+from joueurs.joueurShanon import JoueurShanon
+from joueurs.joueurChanone2 import JoueurChanone2
+from joueurs.joueurHum1 import JoueurHum1
 
 
 jeux = {"pf": ['p', 'f']}
-
-
-# ----------
 
 
 def saisieNbr(msg, min=0, max=300000):
@@ -65,9 +58,6 @@ def initJoueur(msg, tmp, condVic):
     return res
 
 
-# ----------
-
-
 if __name__ == '__main__':
     # Initialisation
     if len(sys.argv) >= 2:
@@ -77,22 +67,23 @@ if __name__ == '__main__':
             if len(sys.argv) >= 4:
                 condFin = int(sys.argv[3])
             else:
-                condFin = saisieNbr("Partie en combien de manches ?\n")
+                condFin = saisieNbr('Partie en combien de manches ?\n')
         else:
-            tmp2 = saisieLettre("Le joueur qui gagne si le pari est different \
-                                est-il humain (h) ou machine (m) ?\n", 'HM')
+            tmp2 = saisieLettre('Le joueur qui gagne si le pari est different '
+                                + 'est-il humain (h) ou machine (m) ?\n',
+                                'HM')
             condFin = saisieNbr("Partie en combien de manches ?\n")
     else:
-        tmp1 = saisieLettre("Le joueur qui gagne si le pari est identique \
-                            est-il humain (h) ou machine (m) ?\n", 'HM')
-        tmp2 = saisieLettre("Le joueur qui gagne si le pari est different \
-                            est-il humain (h) ou machine (m) ?\n", 'HM')
-        condFin = saisieNbr("Partie en combien de manches ?\n")
-    j1 = initJoueur("Choisissez l'algorithme pour le joueur 1 parmi Aléatoire \
-                    (a), Minaisi (m), Shanon (s) ou Chanone Reloaded (c): ",
+        tmp1 = saisieLettre('Le joueur qui gagne si le pari est identique '
+                            + 'est-il humain (h) ou machine (m) ?\n', 'HM')
+        tmp2 = saisieLettre('Le joueur qui gagne si le pari est different '
+                            + 'est-il humain (h) ou machine (m) ?\n', 'HM')
+        condFin = saisieNbr('Partie en combien de manches ?\n')
+    j1 = initJoueur("Choisissez l'algorithme pour le joueur 1 parmi Aléatoire "
+                    + '(a), Minaisi (m), Shanon (s) ou Chanone Reloaded (c): ',
                     tmp1, str.__eq__)
-    j2 = initJoueur("Choisissez l'algorithme pour le joueur 2 parmi Aléatoire \
-                    (a), Minaisi (m), Shanon (s) ou Chanone Reloaded (c): ",
+    j2 = initJoueur("Choisissez l'algorithme pour le joueur 2 parmi Aléatoire "
+                    + '(a), Minaisi (m), Shanon (s) ou Chanone Reloaded (c): ',
                     tmp2, str.__ne__)
     vic1 = vic2 = 0
 
@@ -104,11 +95,13 @@ if __name__ == '__main__':
         time.sleep(0.1)
         print("Augur : {}".format(ch1[0]))
         print("Choix : {}".format(ch2[0]))
-        if ch2[0].upper() == ch1[0].upper():    # La machine devine la pensee
+        if ch2[0].upper() == ch1[0].upper():
+            # La machine devine la pensee
             print("Paris identiques, j1 gagne.")
             vic1 += 1
             res = 'd'
-        else:               # La machine ne devine pas la pensee
+        else:
+            # La machine ne devine pas la pensee
             print("Paris différents, j2 gagne.")
             vic2 += 1
             res = 'v'
@@ -126,7 +119,7 @@ if __name__ == '__main__':
         print("Le score est de {} à {} pour {}.".format(aff1, aff2, aff3))
         j1.clcl(ch2, res)
 
-        # Conclusion
+    # Conclusion
     if vic1 > vic2:
         print("Le joueur 1 a gagne.")
     elif vic1 < vic2:

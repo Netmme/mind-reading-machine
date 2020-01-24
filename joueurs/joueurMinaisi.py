@@ -6,7 +6,7 @@
 
 import re
 import time
-from jeux.joueur import Joueur
+from joueurs.joueur import Joueur
 
 
 class JoueurMinaisi(Joueur):
