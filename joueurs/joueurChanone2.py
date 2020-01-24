@@ -43,7 +43,7 @@ class JoueurChanone2(Joueur):
     def clcl(self, coup, res):
         # compression = lambda x: pow(math.log(x), 2) + 1 # A améliorer
         if self.derCoup != '':
-                # Mettre a jour la memoire du comportement
+            # Mettre a jour la memoire du comportement
             if self.serie in self.tactic:
                 if (coup == self.derCoup):  # pas adaptable si le but est de faire différent
                     self.tactic[self.serie][0] += 1
