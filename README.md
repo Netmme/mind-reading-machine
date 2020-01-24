@@ -3,13 +3,13 @@ Algorithmes pour gagner aux jeux à information complète et imparfaite tel que 
 
 ## Versions
 
-### Version 0
+### Version 0.1.0.0
 
 Creation du projet.
 * Jeu "Presque Pile ou Face" intégré.
 * Algorithme de Minaisi adapté intégré.
 
-### Version 0.5
+### Version 0.2.0.0
 
 Ammélioration du projet pour qu'il ait une certaine consistance.
 * Ajout de la MRM de Shanon.
@@ -17,7 +17,7 @@ Ammélioration du projet pour qu'il ait une certaine consistance.
 * Lissage de l'interface, accepte le type de joueur en paramètre *(ex: ./main.py m h 8)*.
 * La machine doit être le joueur 1 sinon cela ne fonctionne pas *(à corriger)*.
 
-### Version 1.0
+### Version 1.0.0.0
 
 Projet fonctionnel, plusieurs algorithmes sont disponnibles mais qu'un seul jeu.
 * Ajout de la MRM Chanone Reloaded
@@ -25,13 +25,20 @@ Projet fonctionnel, plusieurs algorithmes sont disponnibles mais qu'un seul jeu.
 * Adaptation des joueurs à leur condition de victoire, n'importe quel joueur peut être machine ou humain.
 * Correction des bugs qui empêchaient de jouer.
 
-### Version 1.5
+### Version 1.1.0.0
 
 Optimisation des joueurs
 * Utilisation de urandom au lieu de random
 * Reorganisation des objets joueurs
 Potentiels bug
 * Joueur 2 gagne beaucoup plus souvent que joueur 1 quel que soit l'algorithme
+
+### Version 1.2.0.0
+
+Projet toujours fonctionnel.
+* Utilisation d'un submodule pour urandom.
+* Légère correction du code (pour correspondre un peu plus à pep8)
+
 
 ## Mode d'emploie
 
@@ -45,8 +52,9 @@ Potentiels bug
 *[] Pierre, Feuilles, Ciseaux
 *[] Nouvelle MRM
 *[] Statistiques lors d'une partie
-*[*] Fonction aléatoire plus performante
 *[] Interface graphique
+*[] Ajout du ranking
+*[] Mettre tout le programme en anglais (déso pas déso)
 
 ## Règles des jeux
 
