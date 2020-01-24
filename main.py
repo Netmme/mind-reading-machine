@@ -6,12 +6,12 @@
 
 import time
 import sys
-from joueurs.joueur import Joueur
-from joueurs.joueurMinaisi import JoueurMinaisi
-from joueurs.joueurShanon import JoueurShanon
-from joueurs.joueurChanone2 import JoueurChanone2
-from joueurs.joueurHum1 import JoueurHum1
-
+from players.joueur import Joueur
+from players.joueurMinaisi import JoueurMinaisi
+from players.joueurShanon import JoueurShanon
+from players.joueurChanone2 import JoueurChanone2
+from players.joueurHum1 import JoueurHum1
+from tests.ranking.test_elo import test_elo
 
 jeux = {"pf": ['p', 'f']}
 
@@ -58,7 +58,7 @@ def initJoueur(msg, tmp, condVic):
     return res
 
 
-if __name__ == '__main__':
+def play():
     # Initialisation
     if len(sys.argv) >= 2:
         tmp1 = sys.argv[1]
@@ -126,3 +126,8 @@ if __name__ == '__main__':
         print("Le joueur 2 a gagne.")
     else:
         print("Il fallait vraiment le faire.")
+
+
+if __name__ == '__main__':
+    # play()
+    test_elo()
