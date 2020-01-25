@@ -9,6 +9,10 @@ import sys
 import unittest
 
 from tests.ranking.test_elo import TestElo
+
+from utils.utils import enter_nbr
+from utils.utils import select_letter_in
+
 from players.joueur import Joueur
 from players.joueurMinaisi import JoueurMinaisi
 from players.joueurShanon import JoueurShanon
@@ -18,74 +22,39 @@ from players.joueurHum1 import JoueurHum1
 jeux = {"pf": ['p', 'f']}
 
 
-def saisieNbr(msg, min=0, max=300000):
-    verif = True
-    while verif:
-        nbr = input(msg)
-        if nbr.isdigit():
-            res = int(nbr)
-            if min < res < max:
-                verif = False
-            else:
-                print("Erreur, nombre impossible.")
-        else:
-            print("Erreur de saisie")
-    return res
-
-
-def saisieLettre(msg, listeChoix):
-    verif = True
-    while verif:
-        choix = input(msg)
-        if choix[0].upper() in listeChoix:
-            verif = False
-        else:
-            print("Erreur de saisie")
-    return choix[0].upper()
-
-
-def initJoueur(msg, tmp, condVic):
+def init_player(msg, tmp, victory_cond):
     if tmp.upper() == 'M':
-        j = saisieLettre(msg, 'MSCA')
+        j = select_letter_in(msg, 'MSCA')
         if j.upper() == 'M':
-            res = JoueurMinaisi("Minaisi", condVic)
+            res = JoueurMinaisi("Minaisi", victory_cond)
         elif j.upper() == "A":
-            res = Joueur("Alea", condVic)
+            res = Joueur("Alea", victory_cond)
         elif j.upper() == "S":
-            res = JoueurShanon("Shanon", condVic)
+            res = JoueurShanon("Shanon", victory_cond)
         elif j.upper() == "C":
-            res = JoueurChanone2("Chanone", condVic)
+            res = JoueurChanone2("Chanone", victory_cond)
     else:
-        res = JoueurHum1("Hum1", condVic)
+        res = JoueurHum1("Hum1", victory_cond)
     return res
 
 
 def play():
     # Initialisation
-    if len(sys.argv) >= 2:
-        tmp1 = sys.argv[1]
-        if len(sys.argv) >= 3:
-            tmp2 = sys.argv[2]
-            if len(sys.argv) >= 4:
-                condFin = int(sys.argv[3])
-            else:
-                condFin = saisieNbr('Partie en combien de manches ?\n')
-        else:
-            tmp2 = saisieLettre('Le joueur qui gagne si le pari est different '
-                                + 'est-il humain (h) ou machine (m) ?\n',
-                                'HM')
-            condFin = saisieNbr("Partie en combien de manches ?\n")
-    else:
-        tmp1 = saisieLettre('Le joueur qui gagne si le pari est identique '
-                            + 'est-il humain (h) ou machine (m) ?\n', 'HM')
-        tmp2 = saisieLettre('Le joueur qui gagne si le pari est different '
-                            + 'est-il humain (h) ou machine (m) ?\n', 'HM')
-        condFin = saisieNbr('Partie en combien de manches ?\n')
-    j1 = initJoueur("Choisissez l'algorithme pour le joueur 1 parmi Aléatoire "
+    condFin = enter_nbr('Partie en combien de manches ?\n')
+    tmp2 = select_letter_in('Le joueur qui gagne si le pari est different '
+                        + 'est-il humain (h) ou machine (m) ?\n',
+                        'HM')
+    condFin = enter_nbr("Partie en combien de manches ?\n")
+    tmp1 = select_letter_in('Le joueur qui gagne si le pari est identique '
+                        + 'est-il humain (h) ou machine (m) ?\n', 'HM')
+    tmp2 = select_letter_in('Le joueur qui gagne si le pari est different '
+                        + 'est-il humain (h) ou machine (m) ?\n', 'HM')
+    condFin = enter_nbr('Partie en combien de manches ?\n')
+    j1 = init_player("Choisissez l'algorithme pour le joueur 1 parmi Aléatoire "
                     + '(a), Minaisi (m), Shanon (s) ou Chanone Reloaded (c): ',
                     tmp1, str.__eq__)
-    j2 = initJoueur("Choisissez l'algorithme pour le joueur 2 parmi Aléatoire "
-                    + '(a), Minaisi (m), Shanon (s) ou Chanone Reloaded (c): ',
+    j2 = init_player("Choisissez l'algorithme pour le joueur 2 parmi Aléatoire "
+                     + '(a), Minaisi (m), Shanon (s) ou Chanone Reloaded (c): ',
                     tmp2, str.__ne__)
     vic1 = vic2 = 0
 
