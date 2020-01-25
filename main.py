@@ -9,9 +9,11 @@ import sys
 import unittest
 
 from tests.ranking.test_elo import TestElo
+from tests.utils.test_check_nbr import TestCheckNbr
+from tests.utils.test_check_in import TestCheckIn
 
-from utils.utils import enter_nbr
-from utils.utils import select_letter_in
+from utils.utils import check_nbr
+from utils.utils import check_in
 
 from players.joueur import Joueur
 from players.joueurMinaisi import JoueurMinaisi

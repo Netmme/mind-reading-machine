@@ -14,8 +14,8 @@ def check_nbr(nbr, min=0, max=300000, default=None):
     return res
 
 
-def check_letter_in(choice, list_choice, default=None, case_sensitive=None):
-    '''Check if a letter is in a list.'''
+def check_in(choice, list_choice, case_sensitive=None, default=None):
+    '''Check if a given element is in a list.'''
     if not case_sensitive:
         choice = choice.upper()
     if len(choice) != 1 or choice not in list_choice:

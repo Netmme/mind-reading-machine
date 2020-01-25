@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 
 
-import sys
 import unittest
+
 from ranking.elo_score import expected
 from ranking.elo_score import points_transfer
+
 from tests.ranking.player_test_score import PlayerTestScore
 
 
