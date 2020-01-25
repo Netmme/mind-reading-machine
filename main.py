@@ -6,12 +6,14 @@
 
 import time
 import sys
+import unittest
+
+from tests.ranking.test_elo import TestElo
 from players.joueur import Joueur
 from players.joueurMinaisi import JoueurMinaisi
 from players.joueurShanon import JoueurShanon
 from players.joueurChanone2 import JoueurChanone2
 from players.joueurHum1 import JoueurHum1
-from tests.ranking.test_elo import test_elo
 
 jeux = {"pf": ['p', 'f']}
 
@@ -130,4 +132,4 @@ def play():
 
 if __name__ == '__main__':
     # play()
-    test_elo()
+    unittest.main()
