@@ -14,6 +14,7 @@ from tests.utils.test_check_in import TestCheckIn
 
 from utils.utils import check_nbr
 from utils.utils import check_in
+from utils.parser import configure_parser
 
 from players.joueur import Joueur
 from players.joueurMinaisi import JoueurMinaisi
@@ -42,16 +43,16 @@ def init_player(msg, tmp, victory_cond):
 
 def play():
     # Initialisation
-    condFin = enter_nbr('Partie en combien de manches ?\n')
-    tmp2 = select_letter_in('Le joueur qui gagne si le pari est different '
-                        + 'est-il humain (h) ou machine (m) ?\n',
-                        'HM')
-    condFin = enter_nbr("Partie en combien de manches ?\n")
-    tmp1 = select_letter_in('Le joueur qui gagne si le pari est identique '
-                        + 'est-il humain (h) ou machine (m) ?\n', 'HM')
-    tmp2 = select_letter_in('Le joueur qui gagne si le pari est different '
-                        + 'est-il humain (h) ou machine (m) ?\n', 'HM')
-    condFin = enter_nbr('Partie en combien de manches ?\n')
+    # condFin = enter_nbr('Partie en combien de manches ?\n')
+    # tmp2 = select_letter_in('Le joueur qui gagne si le pari est different '
+    #                     + 'est-il humain (h) ou machine (m) ?\n',
+    #                     'HM')
+    # condFin = enter_nbr("Partie en combien de manches ?\n")
+    # tmp1 = select_letter_in('Le joueur qui gagne si le pari est identique '
+    #                     + 'est-il humain (h) ou machine (m) ?\n', 'HM')
+    # tmp2 = select_letter_in('Le joueur qui gagne si le pari est different '
+    #                     + 'est-il humain (h) ou machine (m) ?\n', 'HM')
+    # condFin = enter_nbr('Partie en combien de manches ?\n')
     j1 = init_player("Choisissez l'algorithme pour le joueur 1 parmi Aléatoire "
                     + '(a), Minaisi (m), Shanon (s) ou Chanone Reloaded (c): ',
                     tmp1, str.__eq__)
@@ -103,4 +104,15 @@ def play():
 
 if __name__ == '__main__':
     # play()
-    unittest.main()
+    parser = configure_parser()
+    args = parser.parse_args()
+    if args.mode == 'play':
+        play()
+    elif args.mode is None:
+        # For unknown reasons, I can't use a subparser to run the tests.
+        # So here we go with nothing in parameters.
+        print('Entering test mode')
+        unittest.main()
+    else:
+        print(args)
+        raise('This is not a mode!')
